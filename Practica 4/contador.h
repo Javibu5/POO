@@ -8,17 +8,16 @@ private:
 	int counter_;
 	int valMin_;
 	int valMax_;
-	int valinicial_;
+	
 
 public:
 	
-	Contador(int valMin = "" , int valMax = "" , int valInicial = "");
-
+	Contador(int valMin = 0, int valMax = 1000 , int valInicial = 0 );
+ 	Contador operator=(const Contador &c);
+	Contador operator=(int i);
+	Contador operator++();
+	Contador operator++(int);
 
 };
 
-Contador Contador::operator= (const Contador &c){
-	
-
-}
 #endif
