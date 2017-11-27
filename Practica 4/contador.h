@@ -17,7 +17,8 @@ public:
 	Contador operator=(int i);
 	Contador operator++();
 	Contador operator++(int);
-
+	Contador operator+(int i);
+	Contador operator-(int i);
 };
 
 #endif

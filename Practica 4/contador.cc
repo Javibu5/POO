@@ -1,4 +1,4 @@
-//clase sobrecarga
+se3se3se3s//clase sobrecarga
 
 #include <iostream>
 #include <cstdlib>
@@ -52,4 +52,16 @@ Contador Contador::operator++(int){
 	return temp;
 
 
+}
+
+Contador Contador::operator+(int i){
+
+	counter_ = counter_ + i;
+	return *this;
+}
+
+Contador Contador::operator-(int i){
+
+	counter_ = counter_ - i;
+	return *this;
 }
