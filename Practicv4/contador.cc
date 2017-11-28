@@ -1,9 +1,7 @@
 //clase sobrecarga
 
-#include <iostream>
-#include <cstdlib>
-
 #include "contador.h"
+
 
 
 Contador::Contador(int valMin , int valMax , int valInicial){
@@ -15,8 +13,6 @@ val_ = rango(val_);
 counter_.push_back(val_);
 
 }
-
-
 
 Contador Contador::operator=(const Contador &c){
 
@@ -45,7 +41,7 @@ Contador Contador::operator=(int i){
 }
 
 
-Contador Contador::operator++(void){
+Contador Contador:: operator++(void){
 
 	val_++;
 	val_ = rango(val_);
@@ -82,7 +78,7 @@ Contador Contador::operator--(int){
 
 }
 
-Contador Contador::operator+(int i){
+Contador Contador:: operator+(int i){
 
 	val_ = val_ + i;
 	val_ = rango(val_);
