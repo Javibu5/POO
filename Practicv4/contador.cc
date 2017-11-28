@@ -78,20 +78,35 @@ Contador Contador::operator--(int){
 
 }
 
-Contador Contador:: operator+(int i){
+Contador Contador::operator+(int i , Contador &c){
 
-	val_ = val_ + i;
-	val_ = rango(val_);
-	counter_.push_back(val_);
-	return *this;
+	c.val_ = c.val_ + i;
+	c.val_ = rango(c.val_);
+	counter_.push_back(c.val_);
+	return c;
 }
 
-Contador Contador::operator-(int i){
+Contador Contador::operator+(Contador &c , int i){
+	 
+	c.val_ = c.val_ + i;
+	c.val_ = rango(c.val_);
+	counter_.push_back(c.val_);
+	return c;
+}
 
-	val_ = val_ - i;
-	val_ = rango(val_);
-	counter_.push_back(val_);
-	return *this;
+Contador Contador::operator-(int i , Contador &c){
+
+	c.val_ = c.val_ - i;
+	c.val_ = rango(c.val_);
+	counter_.push_back(c.val_);
+	return *c;
+}
+
+Contador Contador::operator-(Contador &c , int i){
+	c.val_ = c.val_ - i;
+	c.val_ = rango(c.val_);
+	counter_.push_back(c.val_);
+	return *c;
 }
 
 bool Contador::undo(int noperaciones){

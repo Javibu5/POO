@@ -10,7 +10,6 @@ using namespace std;
 
 
 
-
 class Contador
 {
 private:
@@ -31,8 +30,14 @@ public:
 	Contador operator++(int);
 	Contador operator--();
 	Contador operator--(int);
-	Contador operator+(int i);
-	Contador operator-(int i);
+	
+	friend Contador operator+(int i , Contador &c);
+	friend Contador operator+(const Contador &c , int i);
+	friend Contador operator-(int i ,Contador &c);
+	friend Contador operator-(const Contador &c , int i);
+	
+
+
 	bool undo(int noperaciones);
 	inline int get(){return val_;}
 	int rango(int x);

@@ -12,6 +12,8 @@
 #include "contador.h"
 #include "gtest/gtest.h"
 
+using namespace contador;
+
 TEST(Contador, Constructor1) {
   Contador c;
   EXPECT_EQ(0, c.get());
