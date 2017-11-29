@@ -4,7 +4,7 @@ int main()
 {
 
 	cout<<"Introduce la opción que quieras elegir :"<<endl;
-	cout<<"1. Carga los juegadores del fichero jugadores.txt"<<endl;
+	cout<<"1. Carga los jugadores del fichero jugadores.txt"<<endl;
 	cout<<"2. Guarda los jugadores en jugadores.txt"<<endl;
 	cout<<"3. Ver el estado de la ruleta"<<endl;
 	cout<<"4. Hacer girar la ruleta mostrando el numero que ha salido ,
@@ -15,8 +15,11 @@ int main()
 
 
 	int opcion;
+	cin opcion;
 	switch (opcion){
+		case 1: {
 
+		}
 	}
 	return 0;
 }
