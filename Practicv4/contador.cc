@@ -2,15 +2,17 @@
 
 #include "contador.h"
 
-
+using namespace std;
 
 Contador::Contador(int valMin , int valMax , int valInicial){
 
-valMin_ = valMin;
-valMax_ = valMax;
-val_ = valInicial;
-val_ = rango(val_);
-counter_.push_back(val_);
+	list<int>L;
+
+	valMin_ = valMin;
+	valMax_ = valMax;
+	val_ = valInicial;
+	val_ = rango(val_);
+	L.push_back(val_);
 
 }
 
@@ -41,7 +43,7 @@ Contador Contador::operator=(int i){
 }
 
 
-Contador Contador:: operator++(void){
+Contador Contador::operator++(void){
 
 	val_++;
 	val_ = rango(val_);
@@ -78,40 +80,66 @@ Contador Contador::operator--(int){
 
 }
 
-Contador Contador::operator+(int i , Contador &c){
+Contador operator+(int i , Contador c){
 
 	c.val_ = c.val_ + i;
-	c.val_ = rango(c.val_);
-	counter_.push_back(c.val_);
+	if(c.val_>c.valMax_){
+		c.val_=c.valMax_;
+	}
+	if(c.val_<c.valMin_){
+		c.val_=c.valMin_;
+	}
+	c.counter_.push_back(c.val_);
 	return c;
 }
 
-Contador Contador::operator+(Contador &c , int i){
+Contador operator+(Contador c , int i){
 	 
 	c.val_ = c.val_ + i;
-	c.val_ = rango(c.val_);
-	counter_.push_back(c.val_);
+
+	if(c.val_>c.valMax_){
+		c.val_=c.valMax_;
+	}
+	if(c.val_<c.valMin_){
+		c.val_=c.valMin_;
+	}
+
+	c.counter_.push_back(c.val_);
 	return c;
 }
 
-Contador Contador::operator-(int i , Contador &c){
+Contador operator-(int i , Contador c){
 
-	c.val_ = c.val_ - i;
-	c.val_ = rango(c.val_);
-	counter_.push_back(c.val_);
-	return *c;
+	c.val_ = i - c.val_;
+
+	if(c.val_>c.valMax_){
+		c.val_=c.valMax_;
+	}
+	if(c.val_<c.valMin_){
+		c.val_=c.valMin_;
+	}
+
+	c.counter_.push_back(c.val_);
+	return c;
 }
 
-Contador Contador::operator-(Contador &c , int i){
+Contador operator-(Contador c , int i){
 	c.val_ = c.val_ - i;
-	c.val_ = rango(c.val_);
-	counter_.push_back(c.val_);
-	return *c;
+
+	if(c.val_>c.valMax_){
+		c.val_=c.valMax_;
+	}
+	if(c.val_<c.valMin_){
+		c.val_=c.valMin_;
+	}
+
+	c.counter_.push_back(c.val_);
+	return c;
 }
 
 bool Contador::undo(int noperaciones){
 int tamanyo = counter_.size();
-	if(noperaciones > tamanyo){
+	if(noperaciones > tamanyo || noperaciones< tamanyo){
 		return false;
 	}
 	else{

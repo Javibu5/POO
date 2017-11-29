@@ -12,7 +12,6 @@
 #include "contador.h"
 #include "gtest/gtest.h"
 
-using namespace contador;
 
 TEST(Contador, Constructor1) {
   Contador c;

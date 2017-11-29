@@ -8,8 +8,6 @@
 using namespace std;
 
 
-
-
 class Contador
 {
 private:
@@ -24,22 +22,25 @@ private:
 public:
 	
 	Contador(int valMin = 0, int valMax = 1000 , int valInicial = 0 );
+	inline int get(){return val_;};
+
+
  	Contador operator=(const Contador &c);
 	Contador operator=(int i);
-	Contador operator++();
+	Contador operator++(void);
 	Contador operator++(int);
-	Contador operator--();
+	Contador operator--(void);
 	Contador operator--(int);
 	
-	friend Contador operator+(int i , Contador &c);
-	friend Contador operator+(const Contador &c , int i);
-	friend Contador operator-(int i ,Contador &c);
-	friend Contador operator-(const Contador &c , int i);
+	friend Contador operator+(int i , Contador c);
+	friend Contador operator+(Contador c , int i);
+	friend Contador operator-(int i ,Contador c);
+	friend Contador operator-(Contador c , int i);
 	
 
 
-	bool undo(int noperaciones);
-	inline int get(){return val_;}
+	bool undo(int noperaciones = 1);
+	
 	int rango(int x);
 };
 
