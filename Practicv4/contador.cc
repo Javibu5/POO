@@ -10,8 +10,16 @@ Contador::Contador(int valMin , int valMax , int valInicial){
 
 	valMin_ = valMin;
 	valMax_ = valMax;
-	val_ = valInicial;
-	val_ = rango(val_);
+
+	if(valMin > valMax){
+		valMax_ = valMin;
+		valMin_ = valMax;
+	}
+
+	if(valInicial > valMax_ || valInicial < valMin_ ){
+		val_ = 0;
+	}else val_ = valInicial;
+
 	L.push_back(val_);
 
 }
